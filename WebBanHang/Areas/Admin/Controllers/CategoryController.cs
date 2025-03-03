@@ -33,8 +33,8 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.CreateDate = DateTime.Now;
-                model.ModifierDate = DateTime.Now;
+                model.CreatedDate= DateTime.Now;
+                model.ModifiedDate = DateTime.Now;
                   
                 
                 model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
@@ -58,17 +58,17 @@ namespace WebBanHang.Areas.Admin.Controllers
             if(ModelState.IsValid)
             {
                 db.categories.Attach(model);
-                model.ModifierDate = DateTime.Now;
+                model.ModifiedDate = DateTime.Now;
                 model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
                 db.Entry(model).Property(x => x.Title).IsModified = true;
                 db.Entry(model).Property(x=> x.Description).IsModified = true;
                 db.Entry(model).Property(x => x.Alias).IsModified = true;
                 db.Entry(model).Property(x => x.SeoDecription).IsModified = true;
-                db.Entry(model).Property(x => x.SeoKeyWords).IsModified = true;
-                db.Entry(model).Property(x => x.SeoTtile).IsModified = true;
+                db.Entry(model).Property(x => x.SeoKeywords).IsModified = true;
+                db.Entry(model).Property(x => x.SeoTitle).IsModified = true;
                 db.Entry(model).Property(x => x.Position).IsModified = true;
-                db.Entry(model).Property(x => x.ModifierDate).IsModified = true;
-                db.Entry(model).Property(x => x.ModifiedBy).IsModified = true;
+                db.Entry(model).Property(x => x.ModifiedDate).IsModified = true;
+                db.Entry(model).Property(x => x.Modifiedby).IsModified = true;
                 db.SaveChanges();   
 
                 return  RedirectToAction("Index");  

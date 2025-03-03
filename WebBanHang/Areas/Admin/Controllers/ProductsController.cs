@@ -18,7 +18,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // GET: Admin/Products
         public ActionResult Index(int? page)
         {
-            IEnumerable<Product> items = db.Products.OrderByDescending( x => x.ID);
+            IEnumerable<Product> items = db.Products.OrderByDescending( x => x.Id);
             var pageSize = 10;
             if (page == null)
             {

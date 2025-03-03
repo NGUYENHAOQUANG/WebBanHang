@@ -25,13 +25,13 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(Post model)
+        public ActionResult Add(Posts model)
         {
             if (ModelState.IsValid)
             {
-                model.CreateDate = DateTime.Now;
+                model.CreatedDate = DateTime.Now;
                 model.CategoryId = 26;
-                model.ModifierDate = DateTime.Now;
+                model.ModifiedDate = DateTime.Now;
                 model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
                 db.Posts.Add(model);
                 db.SaveChanges();
@@ -47,12 +47,12 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Post model)
+        public ActionResult Edit(Posts model)
         {
             if (ModelState.IsValid)
             {
 
-                model.ModifierDate = DateTime.Now;
+                model.ModifiedDate= DateTime.Now;
                 model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
                 db.Posts.Attach(model);
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;

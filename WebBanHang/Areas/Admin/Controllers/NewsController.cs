@@ -21,7 +21,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 page = 1;
             }
 
-            IEnumerable<News> items = db.News.OrderByDescending(x => x.ID);
+            IEnumerable<News> items = db.News.OrderByDescending(x => x.Id);
             if (!string.IsNullOrEmpty(Searchtext))
             {
                 items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext));
@@ -44,9 +44,9 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.CreateDate = DateTime.Now;
+                model.CreatedDate = DateTime.Now;
                 model.CategoryId = 26;
-                model.ModifierDate = DateTime.Now;
+                model.ModifiedDate = DateTime.Now;
                 model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
                 db.News.Add(model);
                 db.SaveChanges();
@@ -67,7 +67,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
 
-                model.ModifierDate = DateTime.Now;
+                model.ModifiedDate = DateTime.Now;
                 model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
                 db.News.Attach(model);
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;

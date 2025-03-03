@@ -13,18 +13,11 @@ namespace WebBanHang.Models.EF
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        
         public int OrderId { get; set; }
-
-        public int ProductId { get; set; }  
-
+        public int ProductId { get; set; }
         public decimal Price { get; set; }
-
-        public int Quanity { get; set; }        
-
-        public virtual Oder Oder { get; set; }
-
-        public virtual Product Product { get; set; }    
-
+        public int Quantity { get; set; }
+        public virtual Oder Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

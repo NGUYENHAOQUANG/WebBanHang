@@ -8,16 +8,15 @@ using System.Web;
 
 namespace WebBanHang.Models.EF
 {
-    [Table("tb_Subcribe")]
-    public class Subcribe
+    [Table("tb_Subscribe")]
+    public class Subscribe
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]         
-        
-        public int ID { get; set; }
-
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [EmailAddress]
+        [Required]
         public string Email { get; set; }
-
-        public DateTime CreateDate { get; set; }    
+        public DateTime CreatedDate { get; set; }
     }
 }

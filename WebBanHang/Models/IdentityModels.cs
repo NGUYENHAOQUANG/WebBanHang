@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using WebBanHang.Models.EF;
+using WebBanHangOnline.Models.EF;
 
 namespace WebBanHang.Models
 {
@@ -30,17 +31,18 @@ namespace WebBanHang.Models
         {
         }
 
+        public DbSet<ThongKe> ThongKe { get; set; }
         public DbSet<Category> categories { get; set; } 
 
         public DbSet<Adv> Advs { get; set; }
 
-        public DbSet<Post> Posts { get; set; }
+        public DbSet<Posts> Posts { get; set; }
 
         public DbSet<News> News { get; set; }
 
         public DbSet<SystemSetting> SystemSettings { get; set; }
 
-        public DbSet<ProductCategori> ProductCategoris { get; set; }
+        public DbSet<ProductCategory> ProductCategoris { get; set; }
 
         public DbSet<Product> Products { get; set; }
 
@@ -50,7 +52,7 @@ namespace WebBanHang.Models
 
         public DbSet<OderDetail> OderDetails { get; set; }
 
-        public DbSet<Subcribe> Subcribes { get; set; }
+        public DbSet<Subscribe> Subcribes { get; set; }
 
         
         public static ApplicationDbContext Create()

@@ -7,32 +7,32 @@ using System.Web;
 
 namespace WebBanHang.Models.EF
 {
-    [Table("tb_ProductCategori")]
-    public class ProductCategori:CommonAbstract
+    [Table("tb_ProductCategory")]
+    public class ProductCategory : CommonAbstract
     {
-        public ProductCategori() 
-        { 
-            this.products = new HashSet <Product>();
+        public ProductCategory()
+        {
+            this.Products = new HashSet<Product>();
         }
-
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(150)]
         public string Title { get; set; }
-
+        [Required]
+        [StringLength(150)]
+        public string Alias { get; set; }
         public string Description { get; set; }
-
+        [StringLength(250)]
         public string Icon { get; set; }
+        [StringLength(250)]
+        public string SeoTitle { get; set; }
+        [StringLength(500)]
+        public string SeoDescription { get; set; }
+        [StringLength(250)]
+        public string SeoKeywords { get; set; }
 
-        public string SeoTtile { get; set; }
-
-        public string SeoDecription { get; set; }
-
-        public string SeoKeyWords { get; set; }
-
-        public ICollection<Product> products { get; set; }
-
+        public ICollection<Product> Products { get; set; }
     }
 }
